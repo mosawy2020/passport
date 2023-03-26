@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Area extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at'];
+    protected $dates = [
+        'created_at' ,
+        'updated_at'
+    ];
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }
